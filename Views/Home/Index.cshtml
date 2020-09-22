@@ -1,0 +1,61 @@
+﻿@using Material.Models
+@model IEnumerable<Product>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-primary">
+                    <h4 class="card-title ">Products</h4>
+                    <p class="card-category"> Here is a subtitle for this table</p>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                                <th>
+                                    ID
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Price
+                                </th>
+                                <th>
+                                    Expiration
+                                </th>    
+                                <th>
+
+                                </th>                           
+                            </thead>
+                            <tbody>
+                            @foreach (var item in Model)
+                            {                                
+                                <tr>
+                                    <td>
+                                        @item.Id
+                                    </td>
+                                    <td>
+                                        @item.Name
+                                    </td>
+                                    <td class="text-primary"> 
+                                        @item.Price.ToString("C")
+                                    </td>
+                                    <td>
+                                        @item.Expiration.ToString("d")
+                                    </td>  
+                                    <td>                                            
+                                        <i class="material-icons">edit</i> 
+                                        <i href="@Url.Action("Delete","Home")" class="material-icons" style="color: #750101;">delete</i>                                                                                                                         
+                                    </td>                                 
+                                </tr>
+                            }
+                            <tbody>             
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>           
+    </div>
+</div>
